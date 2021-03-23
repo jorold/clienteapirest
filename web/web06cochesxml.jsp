@@ -10,11 +10,19 @@
         <section>
             <main role="main" class="container">
                 <div class="starter-template">
-                    <h1></h1>
+                    <h1>Coches XML</h1>
+                    <label>Seleccione una marca</label>
+                    <select class="form-control" id="selectcoches"></select>
+                    <div id="cocheseleccionado"></div>
                 </div>
             </main>
         </section>
         <jsp:include page="includes/webfooter.jsp"/>
+        <script>
+            $(document).ready(function(){
+                
+            });
+        </script>
     </body>
 </html>
 
