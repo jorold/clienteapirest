@@ -11,6 +11,8 @@
             button{
                     margin-bottom: 15px;
                     margin-top: 15px;
+                    margin-left: 10px;
+                    margin-right: 10px;
             }
         </style>
 
