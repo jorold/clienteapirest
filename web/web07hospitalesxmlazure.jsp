@@ -11,6 +11,11 @@
             <main role="main" class="container">
                 <div class="starter-template">
                     <h1>Api Hospitales Azure</h1>
+                    <label>Id hospital</label>
+                    <input type="text" id="cajahospital" class="form-control"/>
+                    <button type="button" class="btn btn-info" id="botonbuscarhospital">
+                        Buscar Hospital
+                    </button>
                     <table class="table table-info" id="tablahospitales">
                         <thead>
                             <tr>
@@ -22,6 +27,7 @@
                         </thead>
                         <tbody></tbody>
                     </table>
+                    <div id="hospital"></div>
                 </div>
             </main>
         </section>
@@ -50,6 +56,20 @@
                         });
                         $("#tablahospitales tbody").html(html);
                     }
+                });
+                $("#botonbuscarhospital").click(function(){
+                    var id = $("#cajahospital").val();
+                    var request = "api/hospitales/" + id;
+                    $.ajax({
+                        url: url + request,
+                        type: "GET",
+                        dataType: "xml",
+                        success: function(data){
+                            var hospital = $(data).find("Hospital").first();
+                            var html = "<h1>" + $(hospital).find("Nombre").text() + ", " + $(hospital).find("Direccion").text() + "</h1>";
+                            $("#hospital").html(html);
+                        }
+                    });
                 });
             });
         </script>
